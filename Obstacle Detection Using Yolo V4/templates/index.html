@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://purepng.com/public/uploads/large/purepng.com-camera-iconsymbolsiconsapple-iosiosios-8-iconsios-8-72152259602494tzv.png">
+    <title>Obstacle Detection Using Yolo V4</title>
+    <style>
+
+        body {
+            background-color: #f0f0f0; 
+            background-image: url(https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-style: italic;
+            color: black;
+
+        }
+        button {
+            background-color: rgb(108, 222, 175);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #3d493b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Obstacle Detection Using Yolo V8</h1>
+        <button onclick="startCamera()">Start Camera</button>
+        <button onclick="stopCamera()">Stop Camera</button>
+        <br><br>
+        <img id="video_feed" src="" width="640" height="480" alt="Camera">
+    </div>
+    
+    <script>
+        var video = document.getElementById("video_feed");
+
+        function startCamera() {
+            video.src = "{{ url_for('video_feed') }}";
+        }
+
+        function stopCamera() {
+            video.src = "";
+            fetch('/stop_video_feed')
+                .then(response => response.text())
+                .then(data => console.log(data))
+                .catch(error => console.log(error));
+        }
+    </script>
+</body>
+</html>

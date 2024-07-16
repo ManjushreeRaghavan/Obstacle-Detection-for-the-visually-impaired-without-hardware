@@ -1,0 +1,11 @@
+
+
+open  VS code 
+Select file and click open folder option 
+and select the file wich we stored in desktop and click select folder
+then open terminal in VS code
+in terminal type (python app.py) and enter
+copy the URL and paste in browser 
+then click start camera 
+if you need to off means click CTRL + C in terminal and close the media player !!!!
+
